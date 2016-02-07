@@ -1,0 +1,55 @@
+<html><head>
+    <title>Crud List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css">
+  </head><body>
+    <div class="jumbotron" align="center">
+      <h1>List</h1>
+    </div>
+
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <a class="btn btn btn-info btn-success" href="{% url "crud_new" %}">Baru</a>
+            &nbsp;&nbsp;
+            <a class="btn btn btn-info btn-danger" href="http://localhost:8000/">Home</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <table class="table" border="1">
+                <tr>
+                  <th>SKS</th>
+                  <th>Nama</th>
+                  <th>NIM</th>
+                  <th>Tindakan</th>
+                </tr>
+              <tbody>
+                <tr></tr>
+                <tr>{% for crud in object_list %}
+                  <td>{{ crud.SKS }}</td>
+                  <td>{{ crud.Nama }}</td>
+                  <td>{{ crud.NIM }}</td>
+                  <td>
+                  <a class="btn btn btn-info btn-success" href="{% url "crud_delete" crud.id %}">Hapus</a>&nbsp;&nbsp;
+                  <a class="btn btn btn-info btn-danger" href="{% url "crud_edit" crud.id %}">Ubah</a>
+                  </td>
+                </tr>
+              </tbody>
+              {% endfor %}
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+</body></html>
